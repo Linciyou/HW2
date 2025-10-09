@@ -108,9 +108,8 @@
 ---
 
 ## 9) NotebookLM 研究摘要（100 字以上）
-參考 NotebookLM 彙整：  
-- Kaggle《Red Wine Quality》資料集說明，重點強調品質評分來源、理化指標意義與常見資料清理步驟。  
-- UCI Machine Learning Repository 與《A Physicochemical Examination of the Portugese Red Wine》研究；說明揮發性酸、硫酸鹽、酒精對品質的實驗結論。  
-- scikit-learn 與 statsmodels 官方文件，涵蓋 LassoCV 交叉驗證流程、OLS 假設檢定、Durbin-Watson 及信賴/預測區間計算方式。整體摘要約 180 字。
+  本研究以 Kaggle 紅酒品質（Wine Quality） 數據集為例，依循 CRISP-DM 流程（需求界定、資料理解、資料準備、建模、評估、部署建議）完成專案報告。研究目標是利用 11 項理化特徵，預測葡萄酒品質分數（0–10），以協助釀造端進行配方調整與品控。
+方法上，模型主軸為多元線性回歸。在特徵工程階段，透過 LassoCV（5-fold 交叉驗證）執行特徵選擇，篩選出 8 個與品質預測相關的特徵。最終模型採用 statsmodels OLS 建立，並產出完整的係數、診斷統計量、95% 預測區間 與信賴區間。
+模型評估結果顯示，在測試集上，$R^2$ 為 0.327，RMSE 為 0.612。此表現略優於基準模型（Baseline CV-RMSE 為 0.645），且未見明顯過擬合。係數分析指出，酒精濃度與硫酸鹽對品質有正向影響，而揮發性酸與氯化物則呈負向影響，此結果符合釀造經驗。儘管線性模型僅解釋約三成變異，但殘差診斷圖顯示常態假設大致成立。建議將此管線（Scaler + Lasso + OLS）封裝用於批次預測，並納入監控儀表板，以揭露預測不確定性，並在 RMSE 超過閾值時觸發品控警示。
 
 ---
