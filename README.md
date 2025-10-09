@@ -16,6 +16,8 @@
   - `outputs/SLR_alcohol_with_CI.png`（單變數線回歸＋95% 信賴區間）  
   - `outputs/metrics.csv`（R²、MAE、RMSE、Baseline CV-RMSE）
 
+![Predictions with 95% PI](outputs/predictions_with_PI.png)
+
 ---
 
 ## 1) Business Understanding
@@ -69,6 +71,12 @@
   1. **預測 vs 實際（含 95% 預測區間）**：`outputs/predictions_with_PI.png`。預測均值軌跡緊貼實際值，區間寬度約一個品質分數單位，反映殘差變異。  
   2. **殘差 vs 預測值**：`outputs/residuals_vs_fitted.png`。殘差大致對稱於 0，未見明顯漏斗型，但高密度區略呈負殘差。  
   3. **Q-Q Plot**：`outputs/residuals_qq.png`。中段貼近對角線，尾端輕微偏離，顯示常態假設大致成立但存在少量極端值。
+
+![Residuals vs Fitted](outputs/residuals_vs_fitted.png)
+
+![Residuals Q-Q](outputs/residuals_qq.png)
+
+![SLR Alcohol with CI](outputs/SLR_alcohol_with_CI.png)
 - **討論**：  
   - R² 約 0.33，表示線性模型僅解釋三成變異；品質仍受非線性、交互作用或感官因素影響。  
   - 係數顯示酒精濃度、硫酸鹽正向影響品質，揮發性酸、氯化物負向影響符合釀造經驗。  
