@@ -8,7 +8,7 @@
 本專案以 **Kaggle Wine Quality（紅酒）** 數據集為例，依 **CRISP-DM** 流程完成：需求界定 → 資料理解 → 資料準備 → 建模 → 評估 → 部署建議。  
 模型主軸為 **多元線性回歸**，搭配 **LassoCV** 進行特徵選擇；最終以 **statsmodels OLS** 產出 **95% 預測區間** 與 **信賴區間**，並提供殘差診斷圖。
 
-- **資料來源**：Wine Quality（Red），11 項理化特徵 + 1 目標欄位 `quality`
+- **資料來源**：https://www.kaggle.com/datasets/yasserh/wine-quality-dataset/data
 - **目標**：依理化特徵預測葡萄酒品質分數（0–10）
 - **輸出成果**：  
   - `outputs/predictions_with_PI.png`（測試集預測均值 + 95% 預測區間）  
@@ -33,7 +33,7 @@
 ---
 
 ## 2) Data Understanding
-- **來源與規模**：Kaggle Red Wine Quality 資料（1143 筆、12 欄，含 `quality` 目標值）。原始檔名 `WineQT.csv`。  
+- **來源與規模**：Kaggle Wine Quality 資料（1143 筆、12 欄，含 `quality` 目標值）。原始檔名 `WineQT.csv`。  
 - **特徵描述**：固定酸度、揮發性酸、檸檬酸、殘糖、氯化物、自由/總二氧化硫、密度、pH、硫酸鹽、酒精，以及識別欄 `Id`。  
 - **EDA 摘要**：  
   - 無缺值，經 `drop_duplicates()` 後保留 1143 筆。  
