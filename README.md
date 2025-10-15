@@ -100,7 +100,7 @@
 
 ---
 
-## 8) GPT 輔助內容
+## 8) GPT 輔助內容(概要，詳盡內容在GPT對話紀錄.pdf))
 - 本專案以 GPT 作為協作夥伴，圍繞 CRISP-DM 全流程展開：自 Business Understanding 明確化問題與成功指標開始，到 Data Understanding / Preparation 梳理欄位意義、缺失值與異常值處理，再到 Modeling / Evaluation /（準）Deployment 的可重現化設計。對話中，GPT 先協助將報告骨架分解為章節與小節（摘要、研究脈絡、資料來源、方法、結果、限制與未來工作），並提出撰寫順序與段落模板，確保敘事邏輯由動機→方法→證據→結論的閉環完整呈現。
 
 - 在建模策略上，對話聚焦於以 Lasso 進行特徵選擇、搭配 OLS 進行可解釋回歸 的二階段流程。為避免資料外洩並提升重現性，GPT 建議以 單一 scikit-learn Pipeline（StandardScaler → SelectFromModel(LassoCV) → LinearRegression/OLS）結合 KFold 交叉驗證 統一處理前處理與選擇，並固定隨機種子；同時提醒將識別欄（如 Id）剔除。交談亦涵蓋評估指標與報表輸出習慣：以 R² / RMSE / MAE 為核心，輔以訓練/驗證（或測試）分層摘要表，確保結果可追溯、可比對。
